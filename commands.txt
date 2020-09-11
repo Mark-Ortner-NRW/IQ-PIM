@@ -1,0 +1,18 @@
+With NPM
+To install this module:
+
+npm install -g generator-jhipster-pages
+To update this module:
+
+npm update -g generator-jhipster-pages
+Usage
+Launch
+Launch generator and it will ask for everything it needs
+
+yo jhipster-pages
+if you want to regenerate some existing pages you can do it by page set with the following command line :
+
+yo jhipster-pages regenerate
+
+
+

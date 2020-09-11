@@ -113,7 +113,7 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
         ]),
         new WebpackNotifierPlugin({
             title: 'INNOQ PIM - Portal',
-            contentImage: path.join(__dirname, 'innoq-logo--whiteblue.png')
+            contentImage: path.join(__dirname, 'logo-innoq.png')
         })
     ].filter(Boolean),
     mode: 'development'
