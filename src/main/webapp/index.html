@@ -11,7 +11,11 @@
     <meta name="theme-color" content="#000000">
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="manifest" href="manifest.webapp" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="content/css/loading.css">
+    <link rel="stylesheet" href="content/css/innoq.css">
+
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
 </head>
 <body>
@@ -45,26 +49,6 @@
                     <li>Build the client with the command <code style="color:red">npm run webpack:build</code> or <code style="color:red">npm start</code></li>
                     <li>Start the server with <code style="color:red">./mvnw</code> or using your IDE</li>
                 </ol>
-
-                <h2>Getting more help</h2>
-
-                <h3>If you have a question on how to use JHipster</h3>
-                <p>
-                    Go to Stack Overflow with the <a href="http://stackoverflow.com/tags/jhipster" target="_blank" rel="noopener noreferrer">"jhipster"</a> tag.
-                </p>
-
-                <h3>If you have a bug or a feature request</h3>
-                <p>
-                    First read our <a href="https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">contributing guidelines</a>.
-                </p>
-                <p>
-                    Then, fill a ticket on our <a href="https://github.com/jhipster/generator-jhipster/issues/new/choose" target="_blank" rel="noopener noreferrer">bug tracker</a>, we'll be happy to resolve your issue!
-                </p>
-
-                <h3>If you want to chat with contributors and other users</h3>
-                <p>
-                    Join our chat room on <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">Gitter.im</a>. Please note that this is a public chat room, and that we expect you to respect other people and write in a correct English language!
-                </p>
                 <!-- end of troubleshooting content -->
             </div>
         </div>
@@ -72,6 +56,7 @@
     <noscript>
         <h1>You must enable javascript to view this page.</h1>
     </noscript>
+
     <script type="text/javascript" language="javascript">
         // show an error message if the app loading takes more than 5 sec
         window.onload=function() {
@@ -84,7 +69,7 @@
             }
         }
     </script>
-    <!-- uncomment this for adding service worker
+   <!--
         <script>
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
@@ -96,6 +81,7 @@
             }
         </script>
     -->
+
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
     <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

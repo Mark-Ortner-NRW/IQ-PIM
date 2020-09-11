@@ -1,0 +1,781 @@
+entity Account {
+	id String required maxlength(24),
+	name String maxlength(249),
+	deleted Boolean,
+	website String maxlength(255),
+	type String maxlength(255),
+	industry String maxlength(255),
+	sicCode String maxlength(40),
+	billingAddressStreet String maxlength(255),
+	billingAddressCity String maxlength(255),
+	billingAddressState String maxlength(255),
+	billingAddressCountry String maxlength(255),
+	billingAddressPostalCode String maxlength(255),
+	shippingAddressStreet String maxlength(255),
+	shippingAddressCity String maxlength(255),
+	shippingAddressState String maxlength(255),
+	shippingAddressCountry String maxlength(255),
+	shippingAddressPostalCode String maxlength(255),
+	description TextBlob,
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	assignedUserId String maxlength(24),
+	ownerUserId String maxlength(24)
+}
+
+entity AccountContact {
+	id Integer required,
+	accountId String maxlength(24),
+	contactId String maxlength(24),
+	role String maxlength(100),
+	deleted Boolean,
+	isInactive Boolean
+}
+
+entity AccountPortalUser {
+	id Integer required,
+	userId String maxlength(24),
+	accountId String maxlength(24),
+	deleted Boolean
+}
+
+entity ArrayValue {
+	id String required maxlength(24),
+	deleted Boolean,
+	value String maxlength(100),
+	attribute String maxlength(100),
+	entityId String maxlength(24),
+	entityType String maxlength(100)
+}
+
+entity Aspnetroleclaims {
+	id Integer required,
+	claimtype TextBlob,
+	claimvalue TextBlob
+}
+
+entity Aspnetroles {
+	id String required maxlength(255),
+	concurrencystamp TextBlob,
+	name String maxlength(256),
+	normalizedname String maxlength(256)
+}
+
+entity Aspnetuserclaims {
+	id Integer required,
+	claimtype TextBlob,
+	claimvalue TextBlob
+}
+
+entity Aspnetuserlogins {
+	loginprovider String required maxlength(255),
+	providerkey String required maxlength(255),
+	providerdisplayname TextBlob
+}
+
+entity Aspnetusers {
+	id String required maxlength(255),
+	accessfailedcount Integer required,
+	concurrencystamp TextBlob,
+	email String maxlength(256),
+	emailconfirmed Boolean required,
+	lockoutenabled Boolean required,
+	lockoutend Instant,
+	normalizedemail String maxlength(256),
+	normalizedusername String maxlength(256),
+	passwordhash TextBlob,
+	phonenumber TextBlob,
+	phonenumberconfirmed Boolean required,
+	securitystamp TextBlob,
+	twofactorenabled Boolean required,
+	username String maxlength(256)
+}
+
+entity Aspnetusertokens {
+	userid String required maxlength(255),
+	loginprovider String required maxlength(255),
+	name String required maxlength(255),
+	value TextBlob
+}
+
+entity AssociatedProduct {
+	id String required maxlength(24),
+	deleted Boolean,
+	associationId String maxlength(24),
+	mainProductId String maxlength(24),
+	relatedProductId String maxlength(24),
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24),
+	mainProductImageName String maxlength(255),
+	relatedProductImageName String maxlength(255),
+	bothDirections Boolean required,
+	backwardAssociationId String maxlength(24),
+	name String maxlength(255)
+}
+
+entity Association {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	isActive Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	nameEnUs String maxlength(255),
+	descriptionEnUs TextBlob,
+	nameDeDe String maxlength(255),
+	descriptionDeDe TextBlob,
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24),
+	backwardAssociationId String maxlength(24)
+}
+
+entity Attachment {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	type String maxlength(100),
+	size Integer,
+	sourceId String maxlength(36),
+	createdAt Instant,
+	role String maxlength(36),
+	storage String maxlength(24),
+	storageFilePath String maxlength(260),
+	global Boolean required,
+	parentId String maxlength(24),
+	parentType String maxlength(100),
+	relatedId String maxlength(24),
+	relatedType String maxlength(100),
+	createdById String maxlength(24),
+	field String maxlength(255),
+	tmpPath String maxlength(255)
+}
+
+entity Attribute {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	createdAt Instant,
+	modifiedAt Instant,
+	type String maxlength(255),
+	typeValue TextBlob,
+	isSystem Boolean required,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	attributeGroupId String maxlength(24),
+	nameEnUs String maxlength(255),
+	typeValueEnUs TextBlob,
+	nameDeDe String maxlength(255),
+	typeValueDeDe TextBlob,
+	code String maxlength(255),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24),
+	sortOrder Integer,
+	isMultilang Boolean required
+}
+
+entity AttributeGroup {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	isActive Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	sortOrder Integer,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	nameEnUs String maxlength(255),
+	descriptionEnUs TextBlob,
+	nameDeDe String maxlength(255),
+	descriptionDeDe TextBlob,
+	code String maxlength(255),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity Brand {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	isActive Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	nameEnUs String maxlength(255),
+	descriptionEnUs TextBlob,
+	nameDeDe String maxlength(255),
+	descriptionDeDe TextBlob,
+	code String maxlength(255),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity Catalog {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	createdAt Instant,
+	modifiedAt Instant,
+	isActive Boolean required,
+	nameDeDe String maxlength(255),
+	nameEnUs String maxlength(255),
+	descriptionDeDe TextBlob,
+	descriptionEnUs TextBlob,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	assignedUserId String maxlength(24),
+	ownerUserId String maxlength(24),
+	code String maxlength(255)
+}
+
+entity CatalogCategory {
+	id Integer required,
+	catalogId String maxlength(24),
+	categoryId String maxlength(24),
+	deleted Boolean
+}
+
+entity Category {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	isActive Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	categoryParentId String maxlength(24),
+	nameEnUs String maxlength(255),
+	descriptionEnUs TextBlob,
+	nameDeDe String maxlength(255),
+	descriptionDeDe TextBlob,
+	code String maxlength(255),
+	categoryRoute TextBlob,
+	categoryRouteName TextBlob,
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24),
+	imageId String maxlength(24)
+}
+
+entity Channel {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	isActive Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	locales TextBlob,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	nameEnUs String maxlength(255),
+	descriptionEnUs TextBlob,
+	nameDeDe String maxlength(255),
+	descriptionDeDe TextBlob,
+	currencies TextBlob,
+	code String maxlength(255),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity Contact {
+	id String required maxlength(24),
+	deleted Boolean,
+	salutationName String maxlength(255),
+	firstName String maxlength(100),
+	lastName String maxlength(100),
+	accountId String maxlength(255),
+	description TextBlob,
+	doNotCall Boolean required,
+	addressStreet String maxlength(255),
+	addressCity String maxlength(255),
+	addressState String maxlength(255),
+	addressCountry String maxlength(255),
+	addressPostalCode String maxlength(255),
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity Currency {
+	id String required maxlength(24),
+	deleted Boolean,
+	rate Double
+}
+
+entity Efmigrationshistory {
+	migrationid String required maxlength(95),
+	productversion String required maxlength(32)
+}
+
+entity EmailTemplate {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	subject String maxlength(255),
+	body TextBlob,
+	isHtml Boolean required,
+	oneOff Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	assignedUserId String maxlength(24),
+	categoryId String maxlength(24)
+}
+
+entity EntityEmailAddress {
+	id Integer required,
+	entityId String maxlength(24),
+	emailAddressId String maxlength(24),
+	entityType String maxlength(100),
+	primary Boolean,
+	deleted Boolean
+}
+
+entity EntityTeam {
+	id Integer required,
+	entityId String maxlength(24),
+	teamId String maxlength(24),
+	entityType String maxlength(100),
+	deleted Boolean
+}
+
+entity MeasuringUnit {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	unit String maxlength(255),
+	createdAt Instant,
+	modifiedAt Instant,
+	nameDeDe String maxlength(255),
+	nameEnUs String maxlength(255),
+	unitDeDe String maxlength(255),
+	unitEnUs String maxlength(255),
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity Packaging {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	price Double,
+	isActive Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity PimImage {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	link String maxlength(255),
+	sortOrder Integer,
+	scope String maxlength(255),
+	createdAt Instant,
+	modifiedAt Instant,
+	categoryId String maxlength(24),
+	productId String maxlength(24),
+	imageId String maxlength(24),
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity PimImageChannel {
+	id Integer required,
+	channelId String maxlength(24),
+	pimImageId String maxlength(24),
+	deleted Boolean
+}
+
+entity Portal {
+	id String required maxlength(24),
+	name String maxlength(100),
+	deleted Boolean,
+	customId String maxlength(36),
+	isActive Boolean required,
+	tabList TextBlob,
+	quickCreateList TextBlob,
+	theme String maxlength(255),
+	language String maxlength(255),
+	timeZone String maxlength(255),
+	dateFormat String maxlength(255),
+	timeFormat String maxlength(255),
+	weekStart Integer,
+	defaultCurrency String maxlength(255),
+	dashboardLayout TextBlob,
+	dashletsOptions TextBlob,
+	customUrl String maxlength(255),
+	modifiedAt Instant,
+	createdAt Instant,
+	modifiedById String maxlength(24),
+	createdById String maxlength(24),
+	logoId String maxlength(24),
+	companyLogoId String maxlength(24)
+}
+
+entity PortalPortalRole {
+	id Integer required,
+	portalId String maxlength(24),
+	portalRoleId String maxlength(24),
+	deleted Boolean
+}
+
+entity PortalRole {
+	id String required maxlength(24),
+	name String maxlength(150),
+	deleted Boolean,
+	data TextBlob,
+	fieldData TextBlob,
+	exportPermission String maxlength(255)
+}
+
+entity PortalRoleUser {
+	id Integer required,
+	portalRoleId String maxlength(24),
+	userId String maxlength(24),
+	deleted Boolean
+}
+
+entity PortalUser {
+	id Integer required,
+	portalId String maxlength(24),
+	userId String maxlength(24),
+	deleted Boolean
+}
+
+entity Preferences {
+	id String required maxlength(24),
+	data TextBlob
+}
+
+entity Product {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	createdAt Instant,
+	modifiedAt Instant,
+	sku String maxlength(255),
+	isActive Boolean required,
+	type String maxlength(255),
+	amount Double,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	productFamilyId String maxlength(24),
+	nameEnUs String maxlength(255),
+	nameDeDe String maxlength(255),
+	productStatus String maxlength(255),
+	price Double,
+	currency String maxlength(255),
+	priceCurrency String maxlength(255),
+	taxId String maxlength(24),
+	ean String maxlength(255),
+	mpn String maxlength(255),
+	packagingId String maxlength(24),
+	uvp Double,
+	/** default={[]} */
+	tag TextBlob,
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24),
+	finalPrice Double,
+	finalPriceCurrency String maxlength(255),
+	longDescription TextBlob,
+	longDescriptionDeDe TextBlob,
+	longDescriptionEnUs TextBlob,
+	productSerieId String maxlength(24),
+	data TextBlob,
+	catalogId String maxlength(24),
+	basePriceAmount Double,
+	packedAmount Double,
+	imageId String maxlength(24),
+	measuringUnitId String maxlength(24),
+	deliveryStatus String maxlength(255),
+	deliveryStatusDeDe String maxlength(255),
+	deliveryStatusEnUs String maxlength(255),
+	supplied TextBlob,
+	suppliedDeDe TextBlob,
+	suppliedEnUs TextBlob
+}
+
+entity ProductAttributeValue {
+	id String required maxlength(24),
+	deleted Boolean,
+	value TextBlob,
+	productId String maxlength(24),
+	attributeId String maxlength(24),
+	valueEnUs TextBlob,
+	valueDeDe TextBlob,
+	name String maxlength(255),
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24),
+	data TextBlob,
+	productFamilyAttributeId String maxlength(24),
+	isRequired Boolean required,
+	scope String maxlength(255),
+	imageName String maxlength(255)
+}
+
+entity ProductAttributeValueChannel {
+	id Integer required,
+	channelId String maxlength(24),
+	productAttributeValueId String maxlength(24),
+	deleted Boolean
+}
+
+entity ProductCategory {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	scope String maxlength(255),
+	createdAt Instant,
+	modifiedAt Instant,
+	productId String maxlength(24),
+	categoryId String maxlength(24),
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24),
+	sorting Integer
+}
+
+entity ProductCategoryChannel {
+	id Integer required,
+	channelId String maxlength(24),
+	productCategoryId String maxlength(24),
+	deleted Boolean
+}
+
+entity ProductChannel {
+	id Integer required,
+	channelId String maxlength(24),
+	productId String maxlength(24),
+	deleted Boolean,
+	isActive Boolean required
+}
+
+entity ProductFamily {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	isActive Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	nameEnUs String maxlength(255),
+	descriptionEnUs TextBlob,
+	nameDeDe String maxlength(255),
+	descriptionDeDe TextBlob,
+	code String maxlength(255),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity ProductFamilyAttribute {
+	id String required maxlength(24),
+	deleted Boolean,
+	isRequired Boolean required,
+	productFamilyId String maxlength(24),
+	attributeId String maxlength(24),
+	name String maxlength(255),
+	scope String maxlength(255),
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	assignedUserId String maxlength(24),
+	ownerUserId String maxlength(24)
+}
+
+entity ProductFamilyAttributeChannel {
+	id Integer required,
+	channelId String maxlength(24),
+	productFamilyAttributeId String maxlength(24),
+	deleted Boolean
+}
+
+entity ProductSerie {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	assignedUserId String maxlength(24),
+	ownerUserId String maxlength(24)
+}
+
+entity Role {
+	id String required maxlength(24),
+	name String maxlength(150),
+	deleted Boolean,
+	assignmentPermission String maxlength(255),
+	userPermission String maxlength(255),
+	portalPermission String maxlength(255),
+	data TextBlob,
+	fieldData TextBlob,
+	groupEmailAccountPermission String maxlength(255),
+	exportPermission String maxlength(255),
+	dataPrivacyPermission String maxlength(255)
+}
+
+entity RoleTeam {
+	id Integer required,
+	roleId String maxlength(24),
+	teamId String maxlength(24),
+	deleted Boolean
+}
+
+entity RoleUser {
+	id Integer required,
+	roleId String maxlength(24),
+	userId String maxlength(24),
+	deleted Boolean
+}
+
+entity ScheduledJob {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	job String maxlength(255),
+	status String maxlength(255),
+	scheduling String maxlength(255),
+	lastRun Instant,
+	createdAt Instant,
+	modifiedAt Instant,
+	isInternal Boolean required,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24)
+}
+
+entity Subscription {
+	id Integer required,
+	entityId String maxlength(24),
+	entityType String maxlength(100),
+	userId String maxlength(24)
+}
+
+entity Task {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	status String maxlength(255),
+	priority String maxlength(255),
+	dateStart Instant,
+	dateEnd Instant,
+	dateStartDate LocalDate,
+	dateEndDate LocalDate,
+	dateCompleted Instant,
+	description TextBlob,
+	createdAt Instant,
+	modifiedAt Instant,
+	parentId String maxlength(24),
+	parentType String maxlength(100),
+	accountId String maxlength(24),
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	assignedUserId String maxlength(24),
+	productId String maxlength(24),
+	contactId String maxlength(24)
+}
+
+entity Tax {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	value Double,
+	isActive Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	nameEnUs String maxlength(255),
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	nameDeDe String maxlength(255),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity Team {
+	id String required maxlength(24),
+	name String maxlength(100),
+	deleted Boolean,
+	positionList TextBlob,
+	createdAt Instant
+}
+
+entity TeamUser {
+	id Integer required,
+	teamId String maxlength(24),
+	userId String maxlength(24),
+	role String maxlength(100),
+	deleted Boolean
+}
+
+
+
+// Relations
+relationship ManyToOne {
+	Aspnetroleclaims{role required} to Aspnetroles{aspnetroleclaims}
+}
+
+relationship ManyToOne {
+	Aspnetuserclaims{user required} to Aspnetusers{aspnetuserclaims}
+}
+
+relationship ManyToOne {
+	Aspnetuserlogins{user required} to Aspnetusers{aspnetuserlogins}
+}
+
+// TODO This is a pure ManyToMany relation (delete me and decide owner side)
+relationship ManyToMany {
+	Aspnetuserroles{user required} to Aspnetusers{aspnetuserroles}
+}
+
+// TODO This is a pure ManyToMany relation (delete me and decide owner side)
+relationship ManyToMany {
+	Aspnetuserroles{role required} to Aspnetroles{aspnetuserroles}
+}
+
+relationship ManyToOne {
+	Product{brand} to Brand{product}
+}
+
+
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
+

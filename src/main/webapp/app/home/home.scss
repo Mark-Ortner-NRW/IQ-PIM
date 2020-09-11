@@ -1,23 +1,25 @@
 /* ==========================================================================
 Main page styles
 ========================================================================== */
-
 .hipster {
-  display: inline-block;
-  width: 347px;
-  height: 497px;
-  background: url('../../content/images/jhipster_family_member_1.svg') no-repeat center top;
+  display: block;
+  height: 200px;
+  width: 200px;
+  background: url('../../content/images/innoq-logo-square--bluered.png') no-repeat left top;
   background-size: contain;
+  border: none;
+  border-style: none;
 }
 
-/* wait autoprefixer update to allow simple generation of high pixel density media query */
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (-moz-min-device-pixel-ratio: 2),
-  only screen and (-o-min-device-pixel-ratio: 2/1),
-  only screen and (min-resolution: 192dpi),
-  only screen and (min-resolution: 2dppx) {
+@media screen and (max-width: 600px) {
+  .welcome-text {
+    font-size: 2rem;
+  }
   .hipster {
-    background: url('../../content/images/jhipster_family_member_1.svg') no-repeat center top;
+    display: block;
+    height: 100px;
+    width: 100px;
+    background: url('../../content/images/innoq-logo-square--bluered.png') no-repeat left top;
     background-size: contain;
   }
 }

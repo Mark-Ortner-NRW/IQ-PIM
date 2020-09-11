@@ -1,19 +1,19 @@
 {
   "home": {
-    "title": "Bienvenue, Java Hipster !",
+    "title": "Bienvenue, INNOQ PIM PORTAL!",
     "subtitle": "Ceci est votre page d'accueil",
     "logged": {
       "message": "Vous êtes connecté en tant que \"{{username}}\"."
     },
-    "question": "Si vous avez des questions à propos de JHipster :",
+    "question": "Si vous avez des questions à propos de INNOQ PIM - Portal :",
     "link": {
-      "homepage": "Page d'accueil de JHipster",
-      "stackoverflow": "JHipster sur Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster public chat room",
+      "homepage": "Page d'accueil de INNOQ PIM - Portal",
+      "stackoverflow": "INNOQ PIM - Portal sur Stack Overflow",
+      "bugtracker": "INNOQ PIM - Portal bug tracker",
+      "chat": "INNOQ PIM - Portal public chat room",
       "follow": "Suivez @jhipster sur Twitter"
     },
-    "like": "Si vous aimez JHipster, donnez nous une étoile sur",
+    "like": "Si vous aimez INNOQ PIM - Portal, donnez nous une étoile sur",
     "github": "GitHub "
   }
 }

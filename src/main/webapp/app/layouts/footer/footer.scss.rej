@@ -1,0 +1,8 @@
+diff a/src/main/webapp/app/layouts/footer/footer.scss b/src/main/webapp/app/layouts/footer/footer.scss	(rejected hunks)
+@@ -1,2 +1 @@
+-
+-.footer{
++.footer {
+@@ -4 +3 @@
+-  font-size: 1em;;
++  font-size: 1em;

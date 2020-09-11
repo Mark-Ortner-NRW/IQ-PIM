@@ -1,13 +1,15 @@
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-
 /* ==========================================================================
 Navbar
 ========================================================================== */
 
+.navbar-version,
+.navbar-brand {
+  color: #24244c;
+  font-size: 1em;
+}
+
 .navbar-version {
   font-size: 0.65em;
-  color: $navbar-dark-color;
 }
 
 .profile-image {
@@ -16,16 +18,21 @@ Navbar
 }
 
 .navbar {
-  padding: 0.2rem 1rem;
-
   ul.navbar-nav {
     .nav-item {
       margin-left: 0.5em;
+    }
+    .dropdown-item:hover {
+      color: #ff4d67;
     }
   }
 
   a.nav-link {
     font-weight: 400;
+    color: #24244c;
+    :hover {
+      color: #ff4d67;
+    }
   }
 }
 
@@ -33,10 +40,12 @@ Navbar
 Logo styles
 ========================================================================== */
 .logo-img {
-  height: 45px;
-  width: 45px;
+  height: 90px;
+  width: 90px;
   display: inline-block;
   vertical-align: middle;
-  background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
+  background: url('../../../content/images/innoq-logo-square--whitered.svg') no-repeat center center;
   background-size: contain;
+  margin-top: -15px;
+  margin-bottom: -15px;
 }

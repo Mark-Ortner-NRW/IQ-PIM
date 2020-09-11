@@ -1,13 +1,13 @@
 {
   "global": {
-    "title": "InnoqPim",
+    "title": "INNOQ PIM - Portal",
     "browsehappy": "Sie benutzen einen <strong>veralteten</strong> Browser. Bitte <a href=\"http://browsehappy.com/?locale=de/\">aktualisieren Sie Ihren Browser</a>, um die Benutzerfreundlichkeit zu erhöhen.",
     "menu": {
       "home": "Startseite",
-      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "jhipster-needle-menu-add-element": "INNOQ PIM - Portal will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entitäten",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "jhipster-needle-menu-add-entry": "INNOQ PIM - Portal will add additional entities here (do not translate!)"
       },
       "account": {
         "main": "Zugang",
@@ -29,7 +29,7 @@
         "audits": "Audits",
         "apidocs": "API",
         "database": "Datenbank",
-        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+        "jhipster-needle-menu-add-admin-element": "INNOQ PIM - Portal will add additional menu entries here (do not translate!)"
       },
       "language": "Sprache"
     },
@@ -135,5 +135,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "Dies ist Ihre Fußzeile"
+  "footer": "INNOQ Deutschland GmbH - 2020"
 }
