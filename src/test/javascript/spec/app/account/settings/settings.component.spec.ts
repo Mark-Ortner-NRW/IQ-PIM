@@ -21,14 +21,14 @@ describe('Component Tests', () => {
       langKey: 'de',
       login: 'john',
       authorities: [],
-      imageUrl: ''
+      imageUrl: '',
     };
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         imports: [InnoqPimTestModule],
         declarations: [SettingsComponent],
-        providers: [FormBuilder]
+        providers: [FormBuilder],
       })
         .overrideTemplate(SettingsComponent, '')
         .compileComponents();
@@ -48,7 +48,7 @@ describe('Component Tests', () => {
         firstName: 'John',
         lastName: 'Doe',
         email: 'john.doe@mail.com',
-        langKey: 'de'
+        langKey: 'de',
       };
 
       // WHEN
