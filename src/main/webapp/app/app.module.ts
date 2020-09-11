@@ -7,6 +7,7 @@ import { InnoqPimCoreModule } from 'app/core/core.module';
 import { InnoqPimAppRoutingModule } from './app-routing.module';
 import { InnoqPimHomeModule } from './home/home.module';
 import { InnoqPimEntityModule } from './entities/entity.module';
+import { InnoqPimAppLandingPageModule } from './landing-page/landing-page.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -21,6 +22,7 @@ import { ErrorComponent } from './layouts/error/error.component';
     InnoqPimSharedModule,
     InnoqPimCoreModule,
     InnoqPimHomeModule,
+    InnoqPimAppLandingPageModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     InnoqPimEntityModule,
     InnoqPimAppRoutingModule,
