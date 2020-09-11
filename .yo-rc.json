@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.innoq",
+      "nativeLanguage": "de"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "InnoqPim",
+    "packageName": "com.innoq",
+    "packageFolder": "com/innoq",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "M2QzOTg2NDJhNDIyNTgzNjI5YjY2NTIzNDZhMzcyNzhhNjZhYjM0N2NhMDM0NjI2ZjYxODk0YzliZjBiYjU1NDBlNmM3ZGNkNzc1NWRiOTcwMjI3NjQ2Y2NkY2VhMzQyOGZiMjlkNjM5NmYxNTMzZDg1YzJmODI1ZWQzZTQ3YzA=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1599751386705,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "de",
+    "languages": ["de", "zh-cn", "nl", "en", "fr", "ja"],
+    "blueprints": []
+  }
+}
