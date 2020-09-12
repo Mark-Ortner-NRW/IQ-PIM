@@ -14,5 +14,12 @@ if you want to regenerate some existing pages you can do it by page set with the
 
 yo jhipster-pages regenerate
 
+******
+
+git checkout better_branch
+git merge --strategy=ours master    
+git checkout master
+git merge 595eb68 
+
 
 
