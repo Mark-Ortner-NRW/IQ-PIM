@@ -19,7 +19,119 @@ yo jhipster-pages regenerate
 git checkout better_branch
 git merge --strategy=ours master    
 git checkout master
-git merge 595eb68 
+git merge d76a80c3e56d77f47f69341f66b5e23971d04045 
 
+
+******
+
+npm install -g generator-jhipster
+npm install -g generator-jhipster-tenantview
+
+jhipster --blueprints tenantview
+
+*****
+npm install -g generator-jhipster-vuejs
+
+
+****
+
+NPM: npm install jhipster-core --save
+
+jhipster import-jdl ./my-jdl-file.jdl --json-only
+
+
+
+jhipster import-jdl ./my-jdl-file.jdl --force
+
+entity Brand {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	description TextBlob,
+	isActive Boolean required,
+	createdAt Instant,
+	modifiedAt Instant,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	nameEnUs String maxlength(255),
+	descriptionEnUs TextBlob,
+	nameDeDe String maxlength(255),
+	descriptionDeDe TextBlob,
+	code String maxlength(255),
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24)
+}
+
+entity Product {
+	id String required maxlength(24),
+	name String maxlength(255),
+	deleted Boolean,
+	createdAt Instant,
+	modifiedAt Instant,
+	sku String maxlength(255),
+	isActive Boolean required,
+	type String maxlength(255),
+	amount Double,
+	createdById String maxlength(24),
+	modifiedById String maxlength(24),
+	productFamilyId String maxlength(24),
+	nameEnUs String maxlength(255),
+	nameDeDe String maxlength(255),
+	productStatus String maxlength(255),
+	price Double,
+	currency String maxlength(255),
+	priceCurrency String maxlength(255),
+	taxId String maxlength(24),
+	ean String maxlength(255),
+	mpn String maxlength(255),
+	packagingId String maxlength(24),
+	uvp Double,
+	/** default={[]} */
+	tag TextBlob,
+	ownerUserId String maxlength(24),
+	assignedUserId String maxlength(24),
+	finalPrice Double,
+	finalPriceCurrency String maxlength(255),
+	longDescription TextBlob,
+	longDescriptionDeDe TextBlob,
+	longDescriptionEnUs TextBlob,
+	productSerieId String maxlength(24),
+	data TextBlob,
+	catalogId String maxlength(24),
+	basePriceAmount Double,
+	packedAmount Double,
+	imageId String maxlength(24),
+	measuringUnitId String maxlength(24),
+	deliveryStatus String maxlength(255),
+	deliveryStatusDeDe String maxlength(255),
+	deliveryStatusEnUs String maxlength(255),
+	supplied TextBlob,
+	suppliedDeDe TextBlob,
+	suppliedEnUs TextBlob
+}
+
+relationship OneToMany {
+	Brand{product} to Product{brand}
+}
+
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
+
+
+
+
+
+TODO/
+
+- Add new page
+- add all PRIMNG stuff ... (Core, simple element ...)
+- add idl
+- add data table
+...
+-
 
 
