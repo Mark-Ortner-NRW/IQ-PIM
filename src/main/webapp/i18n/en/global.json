@@ -5,6 +5,9 @@
     "menu": {
       "home": "Home",
       "landing-page": "Landing Page",
+      "control-demo": "Control Demo",
+      "page-one": "Page One",
+      "page-two": "Page Two",
       "jhipster-needle-menu-add-element": "INNOQ PIM - Portal will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
