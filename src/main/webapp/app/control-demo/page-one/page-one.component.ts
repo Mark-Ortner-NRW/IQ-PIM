@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorPickerModule } from 'primeng/colorpicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'jhi-page-one',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageOneComponent implements OnInit {
   message: string;
+  color: any = '#24244c';
 
   constructor() {
     this.message = 'PageOneComponent message';

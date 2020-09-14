@@ -2,10 +2,11 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
     <h6 class="text-right">{{message}}</h6>
-    <h1 class="text-capitalize text-center" jhiTranslate="page-one.title">Title</h1>
+    <h1 class="text-capitalize text-center">Data Table</h1>
     <h5 class="text-center" jhiTranslate="page-one.subtitle">Subtitle</h5>
     <hr/>
-    <p class="text-justify" jhiTranslate="page-one.content">Content</p>
+      <p-colorPicker [(ngModel)]="color" ></p-colorPicker>
+      <p-colorPicker [(ngModel)]="color" [inline]="true"></p-colorPicker>
   </div>
   <div class="col-md-1"></div>
 </div>
