@@ -6,11 +6,13 @@ import { PageOneComponent } from './page-one/page-one.component';
 import { PageTwoComponent } from './page-two/page-two.component';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   imports: [
     InnoqPimSharedModule,
     BrowserAnimationsModule,
+    TableModule,
     RouterModule.forRoot([CONTROL_DEMO_ROUTE], { useHash: true }),
     ColorPickerModule,
   ],

@@ -41,7 +41,7 @@ jhipster import-jdl ./my-jdl-file.jdl --json-only
 
 
 
-jhipster import-jdl ./my-jdl-file.jdl --force
+c./my-jdl-file.jdl --force
 
 entity Brand {
 	id String required maxlength(24),

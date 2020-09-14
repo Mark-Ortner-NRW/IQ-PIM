@@ -1,0 +1,204 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="product">
+            <h2><span jhiTranslate="innoqPimApp.product.detail.title">Product</span> {{ product.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="innoqPimApp.product.name">Name</span></dt>
+                <dd>
+                    <span>{{ product.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.deleted">Deleted</span></dt>
+                <dd>
+                    <span>{{ product.deleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ product.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.modifiedAt">Modified At</span></dt>
+                <dd>
+                    <span>{{ product.modifiedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.sku">Sku</span></dt>
+                <dd>
+                    <span>{{ product.sku }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{ product.isActive }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.type">Type</span></dt>
+                <dd>
+                    <span>{{ product.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ product.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.createdById">Created By Id</span></dt>
+                <dd>
+                    <span>{{ product.createdById }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.modifiedById">Modified By Id</span></dt>
+                <dd>
+                    <span>{{ product.modifiedById }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.productFamilyId">Product Family Id</span></dt>
+                <dd>
+                    <span>{{ product.productFamilyId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.nameEnUs">Name En Us</span></dt>
+                <dd>
+                    <span>{{ product.nameEnUs }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.nameDeDe">Name De De</span></dt>
+                <dd>
+                    <span>{{ product.nameDeDe }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.productStatus">Product Status</span></dt>
+                <dd>
+                    <span>{{ product.productStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.price">Price</span></dt>
+                <dd>
+                    <span>{{ product.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.currency">Currency</span></dt>
+                <dd>
+                    <span>{{ product.currency }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.priceCurrency">Price Currency</span></dt>
+                <dd>
+                    <span>{{ product.priceCurrency }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.taxId">Tax Id</span></dt>
+                <dd>
+                    <span>{{ product.taxId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.ean">Ean</span></dt>
+                <dd>
+                    <span>{{ product.ean }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.mpn">Mpn</span></dt>
+                <dd>
+                    <span>{{ product.mpn }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.packagingId">Packaging Id</span></dt>
+                <dd>
+                    <span>{{ product.packagingId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.uvp">Uvp</span></dt>
+                <dd>
+                    <span>{{ product.uvp }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.tag" [ngbTooltip]="'innoqPimApp.product.help.tag' | translate">Tag</span></dt>
+                <dd>
+                    <span>{{ product.tag }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.ownerUserId">Owner User Id</span></dt>
+                <dd>
+                    <span>{{ product.ownerUserId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.assignedUserId">Assigned User Id</span></dt>
+                <dd>
+                    <span>{{ product.assignedUserId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.finalPrice">Final Price</span></dt>
+                <dd>
+                    <span>{{ product.finalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.finalPriceCurrency">Final Price Currency</span></dt>
+                <dd>
+                    <span>{{ product.finalPriceCurrency }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.longDescription">Long Description</span></dt>
+                <dd>
+                    <span>{{ product.longDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.longDescriptionDeDe">Long Description De De</span></dt>
+                <dd>
+                    <span>{{ product.longDescriptionDeDe }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.longDescriptionEnUs">Long Description En Us</span></dt>
+                <dd>
+                    <span>{{ product.longDescriptionEnUs }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.productSerieId">Product Serie Id</span></dt>
+                <dd>
+                    <span>{{ product.productSerieId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.data">Data</span></dt>
+                <dd>
+                    <span>{{ product.data }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.catalogId">Catalog Id</span></dt>
+                <dd>
+                    <span>{{ product.catalogId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.basePriceAmount">Base Price Amount</span></dt>
+                <dd>
+                    <span>{{ product.basePriceAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.packedAmount">Packed Amount</span></dt>
+                <dd>
+                    <span>{{ product.packedAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.imageId">Image Id</span></dt>
+                <dd>
+                    <span>{{ product.imageId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.measuringUnitId">Measuring Unit Id</span></dt>
+                <dd>
+                    <span>{{ product.measuringUnitId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.deliveryStatus">Delivery Status</span></dt>
+                <dd>
+                    <span>{{ product.deliveryStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.deliveryStatusDeDe">Delivery Status De De</span></dt>
+                <dd>
+                    <span>{{ product.deliveryStatusDeDe }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.deliveryStatusEnUs">Delivery Status En Us</span></dt>
+                <dd>
+                    <span>{{ product.deliveryStatusEnUs }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.supplied">Supplied</span></dt>
+                <dd>
+                    <span>{{ product.supplied }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.suppliedDeDe">Supplied De De</span></dt>
+                <dd>
+                    <span>{{ product.suppliedDeDe }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.suppliedEnUs">Supplied En Us</span></dt>
+                <dd>
+                    <span>{{ product.suppliedEnUs }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.product.brand">Brand</span></dt>
+                <dd>
+                    <div *ngIf="product.brandId">
+                        <a [routerLink]="['/brand', product.brandId, 'view']">{{ product.brandId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product', product.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

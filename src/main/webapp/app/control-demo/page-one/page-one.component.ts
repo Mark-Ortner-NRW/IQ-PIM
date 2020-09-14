@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'jhi-page-one',
@@ -14,6 +15,5 @@ export class PageOneComponent implements OnInit {
   constructor() {
     this.message = 'PageOneComponent message';
   }
-
   ngOnInit(): void {}
 }

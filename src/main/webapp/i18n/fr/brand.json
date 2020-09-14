@@ -1,0 +1,37 @@
+{
+  "innoqPimApp": {
+    "brand": {
+      "home": {
+        "title": "Brands",
+        "createLabel": "Créer un nouveau Brand",
+        "createOrEditLabel": "Créer ou éditer un Brand",
+        "notFound": "Aucun Brand trouvé"
+      },
+      "created": "Un nouveau Brand a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Brand avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Brand avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Brand {{ id }} ?"
+      },
+      "detail": {
+        "title": "Brand"
+      },
+      "name": "Name",
+      "deleted": "Deleted",
+      "description": "Description",
+      "isActive": "Is Active",
+      "createdAt": "Created At",
+      "modifiedAt": "Modified At",
+      "createdById": "Created By Id",
+      "modifiedById": "Modified By Id",
+      "nameEnUs": "Name En Us",
+      "descriptionEnUs": "Description En Us",
+      "nameDeDe": "Name De De",
+      "descriptionDeDe": "Description De De",
+      "code": "Code",
+      "ownerUserId": "Owner User Id",
+      "assignedUserId": "Assigned User Id",
+      "product": "Product"
+    }
+  }
+}

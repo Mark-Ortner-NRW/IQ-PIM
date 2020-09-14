@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="brand">
+            <h2><span jhiTranslate="innoqPimApp.brand.detail.title">Brand</span> {{ brand.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="innoqPimApp.brand.name">Name</span></dt>
+                <dd>
+                    <span>{{ brand.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.deleted">Deleted</span></dt>
+                <dd>
+                    <span>{{ brand.deleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.description">Description</span></dt>
+                <dd>
+                    <span>{{ brand.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{ brand.isActive }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ brand.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.modifiedAt">Modified At</span></dt>
+                <dd>
+                    <span>{{ brand.modifiedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.createdById">Created By Id</span></dt>
+                <dd>
+                    <span>{{ brand.createdById }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.modifiedById">Modified By Id</span></dt>
+                <dd>
+                    <span>{{ brand.modifiedById }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.nameEnUs">Name En Us</span></dt>
+                <dd>
+                    <span>{{ brand.nameEnUs }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.descriptionEnUs">Description En Us</span></dt>
+                <dd>
+                    <span>{{ brand.descriptionEnUs }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.nameDeDe">Name De De</span></dt>
+                <dd>
+                    <span>{{ brand.nameDeDe }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.descriptionDeDe">Description De De</span></dt>
+                <dd>
+                    <span>{{ brand.descriptionDeDe }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.code">Code</span></dt>
+                <dd>
+                    <span>{{ brand.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.ownerUserId">Owner User Id</span></dt>
+                <dd>
+                    <span>{{ brand.ownerUserId }}</span>
+                </dd>
+                <dt><span jhiTranslate="innoqPimApp.brand.assignedUserId">Assigned User Id</span></dt>
+                <dd>
+                    <span>{{ brand.assignedUserId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/brand', brand.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

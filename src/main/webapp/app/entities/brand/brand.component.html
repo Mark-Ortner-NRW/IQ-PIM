@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="innoqPimApp.brand.home.title">Brands</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-brand" [routerLink]="['/brand/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="innoqPimApp.brand.home.createLabel">
+            Create a new Brand
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="brands?.length === 0">
+        <span jhiTranslate="innoqPimApp.brand.home.notFound">No brands found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="brands && brands.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="innoqPimApp.brand.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deleted"><span jhiTranslate="innoqPimApp.brand.deleted">Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="innoqPimApp.brand.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isActive"><span jhiTranslate="innoqPimApp.brand.isActive">Is Active</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="innoqPimApp.brand.createdAt">Created At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modifiedAt"><span jhiTranslate="innoqPimApp.brand.modifiedAt">Modified At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdById"><span jhiTranslate="innoqPimApp.brand.createdById">Created By Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modifiedById"><span jhiTranslate="innoqPimApp.brand.modifiedById">Modified By Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nameEnUs"><span jhiTranslate="innoqPimApp.brand.nameEnUs">Name En Us</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionEnUs"><span jhiTranslate="innoqPimApp.brand.descriptionEnUs">Description En Us</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nameDeDe"><span jhiTranslate="innoqPimApp.brand.nameDeDe">Name De De</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionDeDe"><span jhiTranslate="innoqPimApp.brand.descriptionDeDe">Description De De</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="innoqPimApp.brand.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ownerUserId"><span jhiTranslate="innoqPimApp.brand.ownerUserId">Owner User Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="assignedUserId"><span jhiTranslate="innoqPimApp.brand.assignedUserId">Assigned User Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let brand of brands ;trackBy: trackId">
+                    <td><a [routerLink]="['/brand', brand.id, 'view']">{{ brand.id }}</a></td>
+                    <td>{{ brand.name }}</td>
+                    <td>{{ brand.deleted }}</td>
+                    <td>{{ brand.description }}</td>
+                    <td>{{ brand.isActive }}</td>
+                    <td>{{ brand.createdAt | date:'medium' }}</td>
+                    <td>{{ brand.modifiedAt | date:'medium' }}</td>
+                    <td>{{ brand.createdById }}</td>
+                    <td>{{ brand.modifiedById }}</td>
+                    <td>{{ brand.nameEnUs }}</td>
+                    <td>{{ brand.descriptionEnUs }}</td>
+                    <td>{{ brand.nameDeDe }}</td>
+                    <td>{{ brand.descriptionDeDe }}</td>
+                    <td>{{ brand.code }}</td>
+                    <td>{{ brand.ownerUserId }}</td>
+                    <td>{{ brand.assignedUserId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/brand', brand.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/brand', brand.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(brand)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="brands && brands.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

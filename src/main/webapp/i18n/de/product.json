@@ -1,0 +1,68 @@
+{
+  "innoqPimApp": {
+    "product": {
+      "home": {
+        "title": "Products",
+        "createLabel": "Product erstellen",
+        "createOrEditLabel": "Product erstellen oder bearbeiten",
+        "notFound": "No Products found"
+      },
+      "created": "Product erstellt mit ID {{ param }}",
+      "updated": "Product aktualisiert mit ID {{ param }}",
+      "deleted": "Product gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Product {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "name": "Name",
+      "deleted": "Deleted",
+      "createdAt": "Created At",
+      "modifiedAt": "Modified At",
+      "sku": "Sku",
+      "isActive": "Is Active",
+      "type": "Type",
+      "amount": "Amount",
+      "createdById": "Created By Id",
+      "modifiedById": "Modified By Id",
+      "productFamilyId": "Product Family Id",
+      "nameEnUs": "Name En Us",
+      "nameDeDe": "Name De De",
+      "productStatus": "Product Status",
+      "price": "Price",
+      "currency": "Currency",
+      "priceCurrency": "Price Currency",
+      "taxId": "Tax Id",
+      "ean": "Ean",
+      "mpn": "Mpn",
+      "packagingId": "Packaging Id",
+      "uvp": "Uvp",
+      "tag": "Tag",
+      "ownerUserId": "Owner User Id",
+      "assignedUserId": "Assigned User Id",
+      "finalPrice": "Final Price",
+      "finalPriceCurrency": "Final Price Currency",
+      "longDescription": "Long Description",
+      "longDescriptionDeDe": "Long Description De De",
+      "longDescriptionEnUs": "Long Description En Us",
+      "productSerieId": "Product Serie Id",
+      "data": "Data",
+      "catalogId": "Catalog Id",
+      "basePriceAmount": "Base Price Amount",
+      "packedAmount": "Packed Amount",
+      "imageId": "Image Id",
+      "measuringUnitId": "Measuring Unit Id",
+      "deliveryStatus": "Delivery Status",
+      "deliveryStatusDeDe": "Delivery Status De De",
+      "deliveryStatusEnUs": "Delivery Status En Us",
+      "supplied": "Supplied",
+      "suppliedDeDe": "Supplied De De",
+      "suppliedEnUs": "Supplied En Us",
+      "brand": "Brand",
+      "help": {
+        "tag": "default={[]}"
+      }
+    }
+  }
+}

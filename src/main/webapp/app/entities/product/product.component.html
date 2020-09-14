@@ -1,0 +1,161 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="innoqPimApp.product.home.title">Products</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="innoqPimApp.product.home.createLabel">
+            Create a new Product
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="products?.length === 0">
+        <span jhiTranslate="innoqPimApp.product.home.notFound">No products found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="products && products.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="innoqPimApp.product.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deleted"><span jhiTranslate="innoqPimApp.product.deleted">Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="innoqPimApp.product.createdAt">Created At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modifiedAt"><span jhiTranslate="innoqPimApp.product.modifiedAt">Modified At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sku"><span jhiTranslate="innoqPimApp.product.sku">Sku</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isActive"><span jhiTranslate="innoqPimApp.product.isActive">Is Active</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type"><span jhiTranslate="innoqPimApp.product.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amount"><span jhiTranslate="innoqPimApp.product.amount">Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createdById"><span jhiTranslate="innoqPimApp.product.createdById">Created By Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modifiedById"><span jhiTranslate="innoqPimApp.product.modifiedById">Modified By Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productFamilyId"><span jhiTranslate="innoqPimApp.product.productFamilyId">Product Family Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nameEnUs"><span jhiTranslate="innoqPimApp.product.nameEnUs">Name En Us</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nameDeDe"><span jhiTranslate="innoqPimApp.product.nameDeDe">Name De De</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productStatus"><span jhiTranslate="innoqPimApp.product.productStatus">Product Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="price"><span jhiTranslate="innoqPimApp.product.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="currency"><span jhiTranslate="innoqPimApp.product.currency">Currency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="priceCurrency"><span jhiTranslate="innoqPimApp.product.priceCurrency">Price Currency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taxId"><span jhiTranslate="innoqPimApp.product.taxId">Tax Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ean"><span jhiTranslate="innoqPimApp.product.ean">Ean</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mpn"><span jhiTranslate="innoqPimApp.product.mpn">Mpn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packagingId"><span jhiTranslate="innoqPimApp.product.packagingId">Packaging Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="uvp"><span jhiTranslate="innoqPimApp.product.uvp">Uvp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tag"><span jhiTranslate="innoqPimApp.product.tag">Tag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ownerUserId"><span jhiTranslate="innoqPimApp.product.ownerUserId">Owner User Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="assignedUserId"><span jhiTranslate="innoqPimApp.product.assignedUserId">Assigned User Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="finalPrice"><span jhiTranslate="innoqPimApp.product.finalPrice">Final Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="finalPriceCurrency"><span jhiTranslate="innoqPimApp.product.finalPriceCurrency">Final Price Currency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longDescription"><span jhiTranslate="innoqPimApp.product.longDescription">Long Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longDescriptionDeDe"><span jhiTranslate="innoqPimApp.product.longDescriptionDeDe">Long Description De De</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longDescriptionEnUs"><span jhiTranslate="innoqPimApp.product.longDescriptionEnUs">Long Description En Us</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productSerieId"><span jhiTranslate="innoqPimApp.product.productSerieId">Product Serie Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="data"><span jhiTranslate="innoqPimApp.product.data">Data</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="catalogId"><span jhiTranslate="innoqPimApp.product.catalogId">Catalog Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="basePriceAmount"><span jhiTranslate="innoqPimApp.product.basePriceAmount">Base Price Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packedAmount"><span jhiTranslate="innoqPimApp.product.packedAmount">Packed Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imageId"><span jhiTranslate="innoqPimApp.product.imageId">Image Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="measuringUnitId"><span jhiTranslate="innoqPimApp.product.measuringUnitId">Measuring Unit Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryStatus"><span jhiTranslate="innoqPimApp.product.deliveryStatus">Delivery Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryStatusDeDe"><span jhiTranslate="innoqPimApp.product.deliveryStatusDeDe">Delivery Status De De</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deliveryStatusEnUs"><span jhiTranslate="innoqPimApp.product.deliveryStatusEnUs">Delivery Status En Us</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplied"><span jhiTranslate="innoqPimApp.product.supplied">Supplied</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="suppliedDeDe"><span jhiTranslate="innoqPimApp.product.suppliedDeDe">Supplied De De</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="suppliedEnUs"><span jhiTranslate="innoqPimApp.product.suppliedEnUs">Supplied En Us</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="brandId"><span jhiTranslate="innoqPimApp.product.brand">Brand</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products ;trackBy: trackId">
+                    <td><a [routerLink]="['/product', product.id, 'view']">{{ product.id }}</a></td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.deleted }}</td>
+                    <td>{{ product.createdAt | date:'medium' }}</td>
+                    <td>{{ product.modifiedAt | date:'medium' }}</td>
+                    <td>{{ product.sku }}</td>
+                    <td>{{ product.isActive }}</td>
+                    <td>{{ product.type }}</td>
+                    <td>{{ product.amount }}</td>
+                    <td>{{ product.createdById }}</td>
+                    <td>{{ product.modifiedById }}</td>
+                    <td>{{ product.productFamilyId }}</td>
+                    <td>{{ product.nameEnUs }}</td>
+                    <td>{{ product.nameDeDe }}</td>
+                    <td>{{ product.productStatus }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.currency }}</td>
+                    <td>{{ product.priceCurrency }}</td>
+                    <td>{{ product.taxId }}</td>
+                    <td>{{ product.ean }}</td>
+                    <td>{{ product.mpn }}</td>
+                    <td>{{ product.packagingId }}</td>
+                    <td>{{ product.uvp }}</td>
+                    <td>{{ product.tag }}</td>
+                    <td>{{ product.ownerUserId }}</td>
+                    <td>{{ product.assignedUserId }}</td>
+                    <td>{{ product.finalPrice }}</td>
+                    <td>{{ product.finalPriceCurrency }}</td>
+                    <td>{{ product.longDescription }}</td>
+                    <td>{{ product.longDescriptionDeDe }}</td>
+                    <td>{{ product.longDescriptionEnUs }}</td>
+                    <td>{{ product.productSerieId }}</td>
+                    <td>{{ product.data }}</td>
+                    <td>{{ product.catalogId }}</td>
+                    <td>{{ product.basePriceAmount }}</td>
+                    <td>{{ product.packedAmount }}</td>
+                    <td>{{ product.imageId }}</td>
+                    <td>{{ product.measuringUnitId }}</td>
+                    <td>{{ product.deliveryStatus }}</td>
+                    <td>{{ product.deliveryStatusDeDe }}</td>
+                    <td>{{ product.deliveryStatusEnUs }}</td>
+                    <td>{{ product.supplied }}</td>
+                    <td>{{ product.suppliedDeDe }}</td>
+                    <td>{{ product.suppliedEnUs }}</td>
+                    <td>
+                        <div *ngIf="product.brandId">
+                            <a [routerLink]="['/brand', product.brandId , 'view']" >{{ product.brandId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product', product.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product', product.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(product)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="products && products.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

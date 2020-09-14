@@ -1,0 +1,450 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-product-heading" jhiTranslate="innoqPimApp.product.home.createOrEditLabel">Create or edit a Product</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.deleted" for="field_deleted">Deleted</label>
+                    <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                           formControlName="deleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.createdAt" for="field_createdAt">Created At</label>
+                    <div class="d-flex">
+                        <input id="field_createdAt" type="datetime-local" class="form-control" name="createdAt" formControlName="createdAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.modifiedAt" for="field_modifiedAt">Modified At</label>
+                    <div class="d-flex">
+                        <input id="field_modifiedAt" type="datetime-local" class="form-control" name="modifiedAt" formControlName="modifiedAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.sku" for="field_sku">Sku</label>
+                    <input type="text" class="form-control" name="sku" id="field_sku"
+                           formControlName="sku"/>
+                    <div *ngIf="editForm.get('sku')!.invalid && (editForm.get('sku')!.dirty || editForm.get('sku')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sku')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.isActive" for="field_isActive">Is Active</label>
+                    <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
+                           formControlName="isActive"/>
+                    <div *ngIf="editForm.get('isActive')!.invalid && (editForm.get('isActive')!.dirty || editForm.get('isActive')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isActive')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                    <div *ngIf="editForm.get('type')!.invalid && (editForm.get('type')!.dirty || editForm.get('type')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('type')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.createdById" for="field_createdById">Created By Id</label>
+                    <input type="text" class="form-control" name="createdById" id="field_createdById"
+                           formControlName="createdById"/>
+                    <div *ngIf="editForm.get('createdById')!.invalid && (editForm.get('createdById')!.dirty || editForm.get('createdById')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdById')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.modifiedById" for="field_modifiedById">Modified By Id</label>
+                    <input type="text" class="form-control" name="modifiedById" id="field_modifiedById"
+                           formControlName="modifiedById"/>
+                    <div *ngIf="editForm.get('modifiedById')!.invalid && (editForm.get('modifiedById')!.dirty || editForm.get('modifiedById')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('modifiedById')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.productFamilyId" for="field_productFamilyId">Product Family Id</label>
+                    <input type="text" class="form-control" name="productFamilyId" id="field_productFamilyId"
+                           formControlName="productFamilyId"/>
+                    <div *ngIf="editForm.get('productFamilyId')!.invalid && (editForm.get('productFamilyId')!.dirty || editForm.get('productFamilyId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('productFamilyId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.nameEnUs" for="field_nameEnUs">Name En Us</label>
+                    <input type="text" class="form-control" name="nameEnUs" id="field_nameEnUs"
+                           formControlName="nameEnUs"/>
+                    <div *ngIf="editForm.get('nameEnUs')!.invalid && (editForm.get('nameEnUs')!.dirty || editForm.get('nameEnUs')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameEnUs')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.nameDeDe" for="field_nameDeDe">Name De De</label>
+                    <input type="text" class="form-control" name="nameDeDe" id="field_nameDeDe"
+                           formControlName="nameDeDe"/>
+                    <div *ngIf="editForm.get('nameDeDe')!.invalid && (editForm.get('nameDeDe')!.dirty || editForm.get('nameDeDe')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameDeDe')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.productStatus" for="field_productStatus">Product Status</label>
+                    <input type="text" class="form-control" name="productStatus" id="field_productStatus"
+                           formControlName="productStatus"/>
+                    <div *ngIf="editForm.get('productStatus')!.invalid && (editForm.get('productStatus')!.dirty || editForm.get('productStatus')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('productStatus')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                           formControlName="price"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.currency" for="field_currency">Currency</label>
+                    <input type="text" class="form-control" name="currency" id="field_currency"
+                           formControlName="currency"/>
+                    <div *ngIf="editForm.get('currency')!.invalid && (editForm.get('currency')!.dirty || editForm.get('currency')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('currency')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.priceCurrency" for="field_priceCurrency">Price Currency</label>
+                    <input type="text" class="form-control" name="priceCurrency" id="field_priceCurrency"
+                           formControlName="priceCurrency"/>
+                    <div *ngIf="editForm.get('priceCurrency')!.invalid && (editForm.get('priceCurrency')!.dirty || editForm.get('priceCurrency')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('priceCurrency')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.taxId" for="field_taxId">Tax Id</label>
+                    <input type="text" class="form-control" name="taxId" id="field_taxId"
+                           formControlName="taxId"/>
+                    <div *ngIf="editForm.get('taxId')!.invalid && (editForm.get('taxId')!.dirty || editForm.get('taxId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('taxId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.ean" for="field_ean">Ean</label>
+                    <input type="text" class="form-control" name="ean" id="field_ean"
+                           formControlName="ean"/>
+                    <div *ngIf="editForm.get('ean')!.invalid && (editForm.get('ean')!.dirty || editForm.get('ean')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ean')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.mpn" for="field_mpn">Mpn</label>
+                    <input type="text" class="form-control" name="mpn" id="field_mpn"
+                           formControlName="mpn"/>
+                    <div *ngIf="editForm.get('mpn')!.invalid && (editForm.get('mpn')!.dirty || editForm.get('mpn')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mpn')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.packagingId" for="field_packagingId">Packaging Id</label>
+                    <input type="text" class="form-control" name="packagingId" id="field_packagingId"
+                           formControlName="packagingId"/>
+                    <div *ngIf="editForm.get('packagingId')!.invalid && (editForm.get('packagingId')!.dirty || editForm.get('packagingId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('packagingId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.uvp" for="field_uvp">Uvp</label>
+                    <input type="number" class="form-control" name="uvp" id="field_uvp"
+                           formControlName="uvp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.tag" for="field_tag" [ngbTooltip]="'innoqPimApp.product.help.tag' | translate">Tag</label>
+                    <textarea class="form-control" name="tag" id="field_tag"
+                              formControlName="tag"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.ownerUserId" for="field_ownerUserId">Owner User Id</label>
+                    <input type="text" class="form-control" name="ownerUserId" id="field_ownerUserId"
+                           formControlName="ownerUserId"/>
+                    <div *ngIf="editForm.get('ownerUserId')!.invalid && (editForm.get('ownerUserId')!.dirty || editForm.get('ownerUserId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ownerUserId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.assignedUserId" for="field_assignedUserId">Assigned User Id</label>
+                    <input type="text" class="form-control" name="assignedUserId" id="field_assignedUserId"
+                           formControlName="assignedUserId"/>
+                    <div *ngIf="editForm.get('assignedUserId')!.invalid && (editForm.get('assignedUserId')!.dirty || editForm.get('assignedUserId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('assignedUserId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.finalPrice" for="field_finalPrice">Final Price</label>
+                    <input type="number" class="form-control" name="finalPrice" id="field_finalPrice"
+                           formControlName="finalPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.finalPriceCurrency" for="field_finalPriceCurrency">Final Price Currency</label>
+                    <input type="text" class="form-control" name="finalPriceCurrency" id="field_finalPriceCurrency"
+                           formControlName="finalPriceCurrency"/>
+                    <div *ngIf="editForm.get('finalPriceCurrency')!.invalid && (editForm.get('finalPriceCurrency')!.dirty || editForm.get('finalPriceCurrency')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('finalPriceCurrency')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.longDescription" for="field_longDescription">Long Description</label>
+                    <textarea class="form-control" name="longDescription" id="field_longDescription"
+                              formControlName="longDescription"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.longDescriptionDeDe" for="field_longDescriptionDeDe">Long Description De De</label>
+                    <textarea class="form-control" name="longDescriptionDeDe" id="field_longDescriptionDeDe"
+                              formControlName="longDescriptionDeDe"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.longDescriptionEnUs" for="field_longDescriptionEnUs">Long Description En Us</label>
+                    <textarea class="form-control" name="longDescriptionEnUs" id="field_longDescriptionEnUs"
+                              formControlName="longDescriptionEnUs"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.productSerieId" for="field_productSerieId">Product Serie Id</label>
+                    <input type="text" class="form-control" name="productSerieId" id="field_productSerieId"
+                           formControlName="productSerieId"/>
+                    <div *ngIf="editForm.get('productSerieId')!.invalid && (editForm.get('productSerieId')!.dirty || editForm.get('productSerieId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('productSerieId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.data" for="field_data">Data</label>
+                    <textarea class="form-control" name="data" id="field_data"
+                              formControlName="data"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.catalogId" for="field_catalogId">Catalog Id</label>
+                    <input type="text" class="form-control" name="catalogId" id="field_catalogId"
+                           formControlName="catalogId"/>
+                    <div *ngIf="editForm.get('catalogId')!.invalid && (editForm.get('catalogId')!.dirty || editForm.get('catalogId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('catalogId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.basePriceAmount" for="field_basePriceAmount">Base Price Amount</label>
+                    <input type="number" class="form-control" name="basePriceAmount" id="field_basePriceAmount"
+                           formControlName="basePriceAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.packedAmount" for="field_packedAmount">Packed Amount</label>
+                    <input type="number" class="form-control" name="packedAmount" id="field_packedAmount"
+                           formControlName="packedAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.imageId" for="field_imageId">Image Id</label>
+                    <input type="text" class="form-control" name="imageId" id="field_imageId"
+                           formControlName="imageId"/>
+                    <div *ngIf="editForm.get('imageId')!.invalid && (editForm.get('imageId')!.dirty || editForm.get('imageId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('imageId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.measuringUnitId" for="field_measuringUnitId">Measuring Unit Id</label>
+                    <input type="text" class="form-control" name="measuringUnitId" id="field_measuringUnitId"
+                           formControlName="measuringUnitId"/>
+                    <div *ngIf="editForm.get('measuringUnitId')!.invalid && (editForm.get('measuringUnitId')!.dirty || editForm.get('measuringUnitId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('measuringUnitId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 24 }">
+                        This field cannot be longer than 24 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.deliveryStatus" for="field_deliveryStatus">Delivery Status</label>
+                    <input type="text" class="form-control" name="deliveryStatus" id="field_deliveryStatus"
+                           formControlName="deliveryStatus"/>
+                    <div *ngIf="editForm.get('deliveryStatus')!.invalid && (editForm.get('deliveryStatus')!.dirty || editForm.get('deliveryStatus')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('deliveryStatus')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.deliveryStatusDeDe" for="field_deliveryStatusDeDe">Delivery Status De De</label>
+                    <input type="text" class="form-control" name="deliveryStatusDeDe" id="field_deliveryStatusDeDe"
+                           formControlName="deliveryStatusDeDe"/>
+                    <div *ngIf="editForm.get('deliveryStatusDeDe')!.invalid && (editForm.get('deliveryStatusDeDe')!.dirty || editForm.get('deliveryStatusDeDe')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('deliveryStatusDeDe')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.deliveryStatusEnUs" for="field_deliveryStatusEnUs">Delivery Status En Us</label>
+                    <input type="text" class="form-control" name="deliveryStatusEnUs" id="field_deliveryStatusEnUs"
+                           formControlName="deliveryStatusEnUs"/>
+                    <div *ngIf="editForm.get('deliveryStatusEnUs')!.invalid && (editForm.get('deliveryStatusEnUs')!.dirty || editForm.get('deliveryStatusEnUs')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('deliveryStatusEnUs')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.supplied" for="field_supplied">Supplied</label>
+                    <textarea class="form-control" name="supplied" id="field_supplied"
+                              formControlName="supplied"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.suppliedDeDe" for="field_suppliedDeDe">Supplied De De</label>
+                    <textarea class="form-control" name="suppliedDeDe" id="field_suppliedDeDe"
+                              formControlName="suppliedDeDe"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.suppliedEnUs" for="field_suppliedEnUs">Supplied En Us</label>
+                    <textarea class="form-control" name="suppliedEnUs" id="field_suppliedEnUs"
+                              formControlName="suppliedEnUs"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="innoqPimApp.product.brand" for="field_brand">Brand</label>
+                    <select class="form-control" id="field_brand" name="brand" formControlName="brandId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="brandOption.id" *ngFor="let brandOption of brands; trackBy: trackById">{{ brandOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
