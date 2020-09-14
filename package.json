@@ -8,6 +8,7 @@
     "node_modules"
   ],
   "dependencies": {
+    "@angular/cdk": "^10.2.0",
     "@angular/common": "10.0.0",
     "@angular/compiler": "10.0.0",
     "@angular/core": "10.0.0",
@@ -28,6 +29,7 @@
     "ngx-cookie-service": "3.0.4",
     "ngx-infinite-scroll": "9.0.0",
     "ngx-webstorage": "5.0.0",
+    "primeicons": "^4.0.0",
     "primeng": "^10.0.0",
     "rxjs": "6.5.5",
     "swagger-ui-dist": "3.25.1",
