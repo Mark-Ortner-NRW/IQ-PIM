@@ -5,8 +5,50 @@
     <h1 class="text-capitalize text-center">Data Table</h1>
     <h5 class="text-center" jhiTranslate="page-one.subtitle">Subtitle</h5>
     <hr/>
-      <p-colorPicker [(ngModel)]="color" ></p-colorPicker>
-      <p-colorPicker [(ngModel)]="color" [inline]="true"></p-colorPicker>
+      <!--
+      <p-table [value]="brands"     [scrollable]="true" scrollHeight="200px" [resizableColumns]="true" [reorderableColumns]="true"  >
+          <ng-template pTemplate="header">
+              <tr>
+                  <th style="width:2em"></th>
+                  <th *ngFor="let col of cols" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn>
+                      {{col.header}}
+                  </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="cols" let-index="rowIndex">
+              <tr [pReorderableRow]="index">
+                  <td>
+                      <i class="pi pi-bars" style="display: flex;justify-content: center;" pReorderableRowHandle></i>
+                  </td>
+                  <td *ngFor="let col of columns" class="ui-resizable-column">
+                      {{rowData[col.field]}}
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+      -->
+
+      <p-table [columns]="cols" [value]="brands" [scrollable]="true" scrollHeight="200px" [resizableColumns]="true" columnResizeMode="expand" styleClass="p-datatable-gridlines" [reorderableColumns]="true">
+          <ng-template pTemplate="header" let-columns>
+              <tr>
+                  <th style="width:2.5em"></th>
+                  <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn>
+                      {{col.header}}
+                  </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+              <tr [pReorderableRow]="index">
+                  <td>
+                      <i class="pi pi-bars" style="display: flex;justify-content: center;"></i>
+                  </td>
+                  <td *ngFor="let col of columns"  class="ui-resizable-column"  >
+                      {{rowData[col.field]}}
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+
   </div>
   <div class="col-md-1"></div>
 </div>
