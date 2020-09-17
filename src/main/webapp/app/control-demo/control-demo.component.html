@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">
-    <h6 class="text-right">{{message}}</h6>
     <h1 class="text-capitalize text-center" jhiTranslate="control-demo.title">Title</h1>
     <h5 class="text-center" jhiTranslate="control-demo.subtitle">Subtitle</h5>
     <hr/>
@@ -11,10 +10,12 @@
         <a routerLinkActive="active" class="nav-link" routerLink="/control-demo/page-one">Data Table</a>
       </li>
       <li class="nav-item">
-        <a routerLinkActive="active" class="nav-link" routerLink="/control-demo/page-two" jhiTranslate="global.menu.page-two">Page Two</a>
+        <a routerLinkActive="active" class="nav-link" routerLink="/control-demo/page-two" >Responsive Data Table</a>
       </li>
+        <li class="nav-item">
+            <a routerLinkActive="active" class="nav-link" routerLink="/control-demo/page-three" >Next Data Table</a>
+        </li>
     </ul>
-
     <router-outlet></router-outlet>
   </div>
   <div class="col-md-1"></div>

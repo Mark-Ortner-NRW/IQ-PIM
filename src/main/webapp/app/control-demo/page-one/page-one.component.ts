@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ColorPickerModule } from 'primeng/colorpicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { IBrand } from 'app/shared/model/brand.model';
@@ -18,7 +17,7 @@ export class PageOneComponent implements OnInit {
   cols: any[] = [
     { field: 'id', header: 'ID' },
     { field: 'name', header: 'Name' },
-    { field: 'description ', header: 'Description' },
+    { field: 'description', header: 'Description' },
     { field: 'createdAt', header: 'Created At' },
   ];
 

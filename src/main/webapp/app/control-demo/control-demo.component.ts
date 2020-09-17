@@ -6,11 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['control-demo.component.scss'],
 })
 export class ControlDemoComponent implements OnInit {
-  message: string;
-
-  constructor() {
-    this.message = 'ControlDemoComponent message';
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }
