@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Brand, IBrand } from 'app/shared/model/brand.model';
 import { BrandService } from 'app/entities/brand/brand.service';
 import { HttpResponse } from '@angular/common/http';
 
 import { MessageService } from 'primeng/api';
-import { FilterUtils } from 'primeng/utils';
-import { LazyLoadEvent } from 'primeng/api';
-import { SelectItem } from 'primeng/api';
+// import { FilterUtils } from 'primeng/utils';
+// import { LazyLoadEvent } from 'primeng/api';
+// import { SelectItem } from 'primeng/api';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'jhi-page-one',
@@ -18,10 +19,15 @@ export class PageThreeComponent implements OnInit {
   color: any = '#24244c';
   brands?: IBrand[] | any;
   brands2?: IBrand[] | any;
+
+  @ViewChild('dt') table: Table | undefined;
+
+  loading: any = true;
+
   cols: any[] = [
     { field: 'id', header: 'ID' },
     { field: 'name', header: 'Name' },
-    // { field: 'description', header: 'Description' },
+    { field: 'description', header: 'Description' },
     { field: 'createdAt', header: 'Created At' },
   ];
   clonedBrands: { [n: number]: Brand } = {};
@@ -32,6 +38,8 @@ export class PageThreeComponent implements OnInit {
       (res: HttpResponse<IBrand[]>) => this.onSuccess(res.body),
       () => this.onError()
     );
+
+    this.loading = false;
   }
 
   protected onSuccess(data: IBrand[] | null): void {

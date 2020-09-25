@@ -3560,7 +3560,7 @@ tbody.collapse.show {
   background-color: #24244c;
 }
 .custom-control-input:focus ~ .custom-control-label::before {
-  box-shadow: 0 0 0 1px #fff, none;
+  box-shadow: 0 0 0 1px #fff, #24244c;
 }
 .custom-control-input:active ~ .custom-control-label::before {
   color: #fff;

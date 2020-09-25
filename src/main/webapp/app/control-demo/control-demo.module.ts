@@ -12,6 +12,7 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { ToastModule } from 'primeng/toast';
     ButtonModule,
     RippleModule,
     ToastModule,
+    InputTextModule,
   ],
   declarations: [ControlDemoComponent, PageOneComponent, PageTwoComponent, PageThreeComponent, PageFourComponent],
   entryComponents: [],

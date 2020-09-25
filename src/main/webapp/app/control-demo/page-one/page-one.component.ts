@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TableModule } from 'primeng/table';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { TableModule } from 'primeng/table';
 import { IBrand } from 'app/shared/model/brand.model';
 import { BrandService } from 'app/entities/brand/brand.service';
-import { HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'jhi-page-one',
