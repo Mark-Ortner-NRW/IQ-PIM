@@ -1,37 +1,73 @@
 <div class="row">
-  <div class="col-md-1"></div>
+    <div pRipple></div>
   <div class="col-md-10">
     <h1 class="text-capitalize text-center">Data Table</h1>
     <h5 class="text-center" jhiTranslate="page-one.subtitle">Subtitle</h5>
     <hr/>
       <div class="card">
+          <p-toolbar styleClass="p-mb-4">
+              <ng-template pTemplate="left">
+              </ng-template>
+              <ng-template pTemplate="right">
+                  <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block purple"></p-fileUpload>
+                  <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help purple"></button>
+              </ng-template>
+          </p-toolbar>
 
-        <p-table [columns]="cols" #dt [value]="brands" dataKey="id" editMode="row" styleClass="p-datatable-sm p-datatable-striped"
+
+        <p-table
+                 #dt
+                 [columns]="selectedColumns"
+                 [value]="brands"
+                 dataKey="id"
+                 editMode="row"
+                 sortMode="multiple"
+                 styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines"
                  [scrollable]="true" scrollHeight="40vh"
-                 [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"
-                 [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                 [filterDelay]="0"
-                 sortMode="multiple">
+                 [loading]="loading"
+                 [paginator]="true"
+                 [showCurrentPageReport]="true"
+                 [rowsPerPageOptions]="[5,10,25,50]"
+                 [rows]="5"
+                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                 [filterDelay]="0">
             <ng-template pTemplate="caption">
                 <div class="table-header">
                     List of Brands
+                    <p-multiSelect [options]="cols"
+                                   [(ngModel)]="selectedColumns"
+                                   optionLabel="header"
+                                   selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}"                                          placeholder="Choose Columns">
+                    </p-multiSelect>
                     <span class="p-input-icon-left">
-                    <i class="pi pi-search left"></i>
-                        <input type="text"  pInputText size="50" placeholder="Global Filter"  (input)="dt.filterGlobal($any($event.target).value, 'contains')"/>
+                        <i class="pi pi-search left"></i>
+                        <input type="text"
+                               pInputText size="50"
+                               placeholder="Global Filter"
+                               (input)="dt.filterGlobal($any($event.target).value, 'contains')"/>
                     </span>
                 </div>
             </ng-template>
-            <ng-template pTemplate="header" let-columns >
+            <ng-template pTemplate="header" let-columns pReorderableColumn>
               <tr>
-                  <th *ngFor="let col of columns" [pSortableColumn]="col.field" id="col.field">
-                      {{col.header}}
+                  <th style="width: 3rem">
+                      <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                  </th>
+                  <th *ngFor="let col of columns"
+                      id="col.field"
+                      pResizableColumn
+                      [pSortableColumn]="col.field">
+                        {{col.header}}
                       <p-sortIcon [field]="col.field"></p-sortIcon>
                   </th>
               </tr>
           </ng-template>
             <ng-template pTemplate="body" let-brand let-editing="editing" let-ri="rowIndex" let-rowData let-columns="columns">
               <tr [pEditableRow]="brand">
-                  <td *ngFor="let col of columns" pEditableColumn>
+                  <td>
+                      <p-tableCheckbox [value]="brand"></p-tableCheckbox>
+                  </td>
+                  <td *ngFor="let col of columns" pEditableColumn   >
                       <p-cellEditor>
                           <ng-template pTemplate="input">
                               <label>
@@ -43,11 +79,16 @@
                           </ng-template>
                       </p-cellEditor>
                   </td>
-                  <td style="text-align:center">
-                      <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(brand)" class="p-button-rounded p-button-text"></button>
-                      <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(brand)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
-                      <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(brand, ri)" class="p-button-rounded p-button-text p-button-danger"></button>
+
+                  <td>
+                      <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="onEditBrand(brand)"></button>
+                      <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="onDeleteBrand(brand)"></button>
                   </td>
+            <!--      <td style="text-align:center">
+                      <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="OnEditBrand(brand)" class="p-button-rounded p-button-text"></button>
+                      <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onDeletBrand(brand)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
+                      <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(brand, ri)" class="p-button-rounded p-button-text p-button-danger"></button>
+                  </td>-->
               </tr>
           </ng-template>
             <ng-template pTemplate="summary">
@@ -57,6 +98,42 @@
             </ng-template>
         </p-table>
       </div>
+
+      <p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+          <ng-template pTemplate="content">
+
+          </ng-template>
+
+          <ng-template pTemplate="footer">
+<!--              <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>-->
+<!--              <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>-->
+<!--          </ng-template>-->
+      </p-dialog>
+
+      <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <p-toast></p-toast>
   </div>
   <div class="col-md-1"></div>

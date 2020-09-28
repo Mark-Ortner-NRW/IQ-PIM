@@ -13,6 +13,11 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ToolbarModule } from 'primeng/toolbar';
+import { FileUploadModule } from 'primeng/fileupload';
+import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   imports: [
@@ -25,6 +30,11 @@ import { InputTextModule } from 'primeng/inputtext';
     RippleModule,
     ToastModule,
     InputTextModule,
+    MultiSelectModule,
+    ToolbarModule,
+    FileUploadModule,
+    DialogModule,
+    ConfirmDialogModule,
   ],
   declarations: [ControlDemoComponent, PageOneComponent, PageTwoComponent, PageThreeComponent, PageFourComponent],
   entryComponents: [],
